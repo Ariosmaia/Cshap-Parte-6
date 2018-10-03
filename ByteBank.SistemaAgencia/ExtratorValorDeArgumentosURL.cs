@@ -30,8 +30,11 @@ namespace ByteBank.SistemaAgencia
         //moedaOrigem=real&moedaDestino=dolar
         public string GetValor(string nomeDoParametro)
         {
+            nomeDoParametro = nomeDoParametro.ToUpper();
+            string argumentoEmCaixaAlta = _argumentos.ToUpper();
+
             string termo = nomeDoParametro + "=";
-            int indiceTermo = _argumentos.IndexOf(termo);
+            int indiceTermo = argumentoEmCaixaAlta.IndexOf(termo);
 
             string resultado = _argumentos.Substring(indiceTermo + termo.Length);
             int indiceEComercial = resultado.IndexOf('&');
